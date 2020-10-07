@@ -4,16 +4,16 @@ function sum(a, b) {
 
 const momIsMadRandomAnswer = () => (Math.floor(Math.random() * (5 - 0)) + 0) > 3;
 
-let array = [7,8,1,52];
+let array = [7, 8, 1, 52];
 
 function reverseArray(arr) {
     let count = arr.length;
     let reversed = [];
-    do{
+    do {
         const value = arr[count - 1];
         reversed.push(value);
         count -= 1;
-    } while(count > 0);
+    } while (count > 0);
 
     return reversed;
 }
@@ -25,16 +25,17 @@ let promise = new Promise((resolve, reject) => {
 
 function multiplication() {
     return new Promise((resolve, reject) => {
-        resolve([1,2,3,4]);
+        resolve([1, 2, 3, 4]);
     });
 }
 
+const momIsMad = momIsMadRandomAnswer();
 
-function birthdayGift() {
+function birthdayGift(momIsMad) {
     return new Promise((resolve, reject) => {
         console.log('hola')
-        const momIsMad = momIsMadRandomAnswer();
-        if(momIsMad) {
+
+        if (momIsMad) {
             const err = new Error(
                 `Mi madre decidió no comprarme un nuevo teléfono`);
             reject(err);
@@ -43,4 +44,4 @@ function birthdayGift() {
         resolve(`Mi mamá está feliz!, me compró un nuevo teléfono`);
     });
 }
-module.exports = sum;
+module.exports = { sum, momIsMadRandomAnswer, reverseArray, promise, multiplication, birthdayGift };      
